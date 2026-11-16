@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import Script from "next/script"
 import { Inter, Plus_Jakarta_Sans } from "next/font/google"
 import { Providers } from "@/components/providers"
 import { getSiteSettings } from "@/lib/site"
@@ -29,6 +30,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" suppressHydrationWarning className={`${body.variable} ${display.variable} antialiased`}>
       <body className="min-h-dvh">
         <Providers>{children}</Providers>
+        {/* Suuper AI chat widget (bot "Tech Life Pakistan"). */}
+        <Script
+          src="https://app.suuper.cc/api/widget.js"
+          data-widget-key="706ab2a3-e6a5-4ff0-a38b-931604e7d341"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
